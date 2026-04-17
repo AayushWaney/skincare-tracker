@@ -1,0 +1,12 @@
+{
+  "templates": {
+    "Monday": { "am": [{"id": "ex1", "step": "Example Step", "product": "Generic Cleanser", "completed": false}], "pm": [], "meds": [], "hair": [] },
+    "Tuesday": { "am": [{"id": "ex1", "step": "Example Step", "product": "Generic Cleanser", "completed": false}], "pm": [], "meds": [], "hair": [] },
+    "Wednesday": { "am": [{"id": "ex1", "step": "Example Step", "product": "Generic Cleanser", "completed": false}], "pm": [], "meds": [], "hair": [] },
+    "Thursday": { "am": [{"id": "ex1", "step": "Example Step", "product": "Generic Cleanser", "completed": false}], "pm": [], "meds": [], "hair": [] },
+    "Friday": { "am": [{"id": "ex1", "step": "Example Step", "product": "Generic Cleanser", "completed": false}], "pm": [], "meds": [], "hair": [] },
+    "Saturday": { "am": [{"id": "ex1", "step": "Example Step", "product": "Generic Cleanser", "completed": false}], "pm": [], "meds": [], "hair": [] },
+    "Sunday": { "am": [{"id": "ex1", "step": "Example Step", "product": "Generic Cleanser", "completed": false}], "pm": [], "meds": [], "hair": [] }
+  },
+  "progress": {}
+}
