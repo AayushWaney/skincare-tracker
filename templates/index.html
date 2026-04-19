@@ -279,6 +279,27 @@
         .modal-btn.confirm { background: var(--accent); color: white; }
         .modal-btn:active { transform: scale(0.95); }
 
+        .logout-btn {
+            display: block;
+            width: 120px;
+            margin: 40px auto 30px auto; /* Centers the button at the bottom with breathing room */
+            text-align: center;
+            background-color: var(--danger); /* Uses your existing red variable */
+            color: #ffffff;
+            border: none;
+            padding: 10px 16px;
+            border-radius: 20px;
+            text-decoration: none;
+            font-size: 14px;
+            font-weight: 600;
+            box-shadow: 0 4px 10px rgba(255, 69, 58, 0.2); /* Soft red glow */
+            transition: 0.2s;
+        }
+
+        .logout-btn:active {
+            transform: scale(0.95);
+        }
+
     </style>
 </head>
 <body>
@@ -659,5 +680,6 @@
 
         window.onload = initApp;
     </script>
+<a href="/logout" class="logout-btn">Log Out</a>
 </body>
 </html>

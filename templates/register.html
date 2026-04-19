@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>Register - Skincare Tracker</title>
+    <link rel="manifest" href="/static/manifest.json">
+    <style>
+        /* Exact same styling as login */
+        :root {
+            --bg-color: #121212;
+            --surface-color: #1e1e1e;
+            --text-main: #ffffff;
+            --text-muted: #888888;
+            --accent: #0A84FF;
+            --danger: #ff453a;
+            --border-color: #333333;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, sans-serif;
+            background-color: var(--bg-color);
+            color: var(--text-main);
+            margin: 0;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+            padding: 20px;
+            box-sizing: border-box;
+        }
+
+        .auth-card {
+            background-color: var(--surface-color);
+            padding: 30px;
+            border-radius: 16px;
+            width: 100%;
+            max-width: 350px;
+            border: 1px solid var(--border-color);
+            box-shadow: 0 10px 30px rgba(0,0,0,0.5);
+        }
+
+        h2 { text-align: center; margin-top: 0; margin-bottom: 24px; font-weight: 700; }
+
+        .auth-input {
+            width: 100%;
+            padding: 14px;
+            margin-bottom: 16px;
+            background: var(--bg-color);
+            border: 1px solid var(--border-color);
+            color: var(--text-main);
+            border-radius: 8px;
+            font-size: 16px;
+            box-sizing: border-box;
+            outline: none;
+        }
+        .auth-input:focus { border-color: var(--accent); }
+
+        .auth-btn {
+            width: 100%;
+            padding: 14px;
+            background-color: var(--accent);
+            color: white;
+            border: none;
+            border-radius: 8px;
+            font-size: 16px;
+            font-weight: 600;
+            cursor: pointer;
+            margin-top: 10px;
+            transition: 0.2s;
+        }
+        .auth-btn:active { transform: scale(0.96); }
+
+        .toggle-link {
+            display: block;
+            text-align: center;
+            margin-top: 20px;
+            color: var(--text-muted);
+            text-decoration: none;
+            font-size: 14px;
+        }
+        .toggle-link span { color: var(--accent); font-weight: 600; }
+
+        .flash-message {
+            background: rgba(255, 69, 58, 0.1);
+            color: var(--danger);
+            border: 1px solid var(--danger);
+            padding: 10px;
+            border-radius: 8px;
+            margin-bottom: 20px;
+            text-align: center;
+            font-size: 14px;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="auth-card">
+        <h2>Create Account</h2>
+
+        {% with messages = get_flashed_messages(with_categories=true) %}
+            {% if messages %}
+                {% for category, message in messages %}
+                    <div class="flash-message {{ category }}">{{ message }}</div>
+                {% endfor %}
+            {% endif %}
+        {% endwith %}
+
+        <form method="POST" action="/register">
+            <input type="text" name="username" class="auth-input" placeholder="Choose a Username" required>
+            <input type="password" name="password" class="auth-input" placeholder="Create a Password" required>
+            <button type="submit" class="auth-btn">Register</button>
+        </form>
+
+        <a href="/login" class="toggle-link">Already have an account? <span>Log In</span></a>
+    </div>
+
+</body>
+</html>
