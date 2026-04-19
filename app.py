@@ -15,8 +15,14 @@ app.config['SECRET_KEY'] = os.getenv('SECRET_KEY', 'fallback_dev_key')
 BASE_DIR = os.path.dirname(os.path.abspath(__file__))
 
 
-# Upgrading from database.json to users.db
-app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///' + os.path.join(BASE_DIR, 'users.db')
+# Try to get the Cloud Database URL from Render. If it's missing, fall back to local SQLite.
+db_url = os.getenv('DATABASE_URL', 'sqlite:///' + os.path.join(BASE_DIR, 'users.db'))
+
+
+if db_url.startswith("postgres://"):
+    db_url = db_url.replace("postgres://", "postgresql://", 1)
+
+app.config['SQLALCHEMY_DATABASE_URI'] = db_url
 app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
 
 # Initialize extensions
