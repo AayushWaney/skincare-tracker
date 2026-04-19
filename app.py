@@ -150,8 +150,8 @@ def save_progress(date_str):
         return jsonify({"error": str(e)}), 500
 
 
+with app.app_context():
+    db.create_all()
+
 if __name__ == '__main__':
-    with app.app_context():
-        # This will create a new 'users.db' file automatically
-        db.create_all()
     app.run(debug=True, host='0.0.0.0', port=5000)
