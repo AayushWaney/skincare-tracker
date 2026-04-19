@@ -541,6 +541,15 @@
                 addBtn.className = 'add-step-btn';
                 addBtn.innerText = '+ Add New Step';
                 addBtn.onclick = () => {
+
+                    // Safely initialize the nested objects if they don't exist yet
+                    if (!fullDB[currentDayName]) {
+                        fullDB[currentDayName] = {};
+                    }
+                    if (!fullDB[currentDayName][currentCategory]) {
+                        fullDB[currentDayName][currentCategory] = [];
+                    }
+
                     fullDB[currentDayName][currentCategory].push({ step: "New Step", product: "New Product", completed: false });
                     renderChecklist();
                 };
